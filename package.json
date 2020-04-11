@@ -10,23 +10,36 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@material-ui/icons": "^4.9.1",
+    "@svgr/webpack": "^5.3.0",
+    "@types/leaflet": "^1.5.12",
     "@types/react": "^16.9.26",
     "@types/react-dom": "^16.9.5",
+    "@types/react-leaflet": "^2.5.1",
+    "@types/react-router-dom": "^5.1.3",
     "css-loader": "^3.4.2",
     "file-loader": "^6.0.0",
+    "gentle-fs": "^4.0.2",
     "html-loader": "^1.0.0",
-    "html-webpack-plugin": "^4.0.2",
+    "html-webpack-plugin": "^4.0.4",
     "source-map-loader": "^0.2.4",
+    "style-loader": "^1.1.3",
     "terser-webpack-plugin": "^2.3.5",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
+    "webpack-bundle-analyzer": "^3.6.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.7",
+    "@material-ui/lab": "^4.0.0-alpha.47",
+    "leaflet": "^1.6.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-leaflet": "^2.6.3",
+    "react-router-dom": "^5.1.2",
+    "react-scroll-parallax": "^2.3.2"
   }
 }

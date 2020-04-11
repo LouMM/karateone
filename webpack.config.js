@@ -2,6 +2,8 @@
 const html_webpack_plugin = require("html-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 //const host = process.env.HOST || '0.0.0.0';
 
 module.exports = async (env, options) => {
@@ -86,6 +88,32 @@ module.exports = async (env, options) => {
                             name: 'src/assets/[name].[ext]'
                         }
                     }
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1,
+                                modules: true
+                            }
+                        }
+                    ],
+                    include: /\.module\.css$/
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                        'style-loader',
+                        'css-loader'
+                    ],
+                    exclude: /\.module\.css$/
+                }
+                , {
+                    test: /\.svg$/,
+                    use: ['@svgr/webpack'],
                 }
             ],
 
@@ -104,7 +132,9 @@ module.exports = async (env, options) => {
                 template: './src/index.html'
                 , chunks: ['app']
 
-            })
+            },
+                new BundleAnalyzerPlugin()
+            )
         ],
         devServer: {
             headers: {
