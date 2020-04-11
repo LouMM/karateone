@@ -4,7 +4,8 @@
   "description": "Karate One",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack --progress --color --display-error-details --mode development",
+    "build": "./node_modules/.bin/webpack --progress --color --display-error-details --mode production",
+    "build:dev": "./node_modules/.bin/webpack --progress --color --display-error-details --mode development",
     "start": "./node_modules/.bin/webpack-dev-server"
   },
   "author": "",
@@ -19,7 +20,6 @@
     "@types/react-router-dom": "^5.1.3",
     "css-loader": "^3.4.2",
     "file-loader": "^6.0.0",
-    "gentle-fs": "^4.0.2",
     "html-loader": "^1.0.0",
     "html-webpack-plugin": "^4.0.4",
     "source-map-loader": "^0.2.4",
