@@ -1,5 +1,5 @@
 import React from 'react';
-import {ParallaxProvider,ParallaxBanner} from 'react-scroll-parallax'
+import { ParallaxBanner } from 'react-scroll-parallax';
 
 export function MainPageBanner() {
     //const classes = useStyles();
@@ -11,7 +11,7 @@ export function MainPageBanner() {
                 layers={[
                     {
                         image: '../../assets/mtsi-cr.webp',
-                        amount: 0.1,
+                        amount: 0.1
                     }
                 ]}
                 style={{
