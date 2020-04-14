@@ -3,16 +3,23 @@ const html_webpack_plugin = require("html-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require("path");
+const rimraf = require('rimraf');
 
 //const host = process.env.HOST || '0.0.0.0';
-
+/*module.exports = {
+    node: {
+        fs: "empty"
+    }
+}*/
 module.exports = async (env, options) => {
-    const devMode = options.mode === "development";
-
+    const devMode = options.mode;
+    rimraf.sync(path.resolve('dist'));
     const config = {
-        mode: devMode,
-        optimization : {
-            minimize: devMode== "production" ? true : false
+        mode: devMode,  
+        //target:'node',
+        optimization: {
+            minimize: devMode == "production" ? true : false
             , minimizer: [
                 new TerserPlugin({
                     terserOptions: {
@@ -63,9 +70,10 @@ module.exports = async (env, options) => {
             // https://twitter.com/wSokra/status/969679223278505985
             runtimeChunk: true,
         }
-        ,devtool: "source-map",
+        , devtool: "source-map",
         entry: {
             app: ['./src/index.tsx']
+            //,"server": [path.join(__dirname, 'server.production.tsx')]
         }
         , resolve: {
             extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.html']
@@ -118,15 +126,15 @@ module.exports = async (env, options) => {
             ],
 
         },
-        /*// When importing a module whose path matches one of the following, just
+        // When importing a module whose path matches one of the following, just
         // assume a corresponding global variable exists and use that instead.
         // This is important because it allows us to avoid bundling all of our
         // dependencies, which allows browsers to cache those libraries between builds.
-        externals: {
-            "react": "React",
-            "react-dom": "ReactDOM"
-        },*/
-        plugins: [
+        externals: ['express']
+        //externals: [nodeExternals()] // Need this to avoid error when working with Express  
+        //"react": "React",
+        //"react-dom": "ReactDOM"
+        , plugins: [
             new html_webpack_plugin({
                 filename: "index.html",
                 template: './src/index.html'

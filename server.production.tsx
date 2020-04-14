@@ -1,17 +1,27 @@
 delete process.env.BROWSER;
 
 import compression from "compression";
+import errorhandler from 'errorhandler';
 import express from "express";
 import * as http from "http";
 import path from "path";
+
 let server: any;
 
 const app: express.Application = express(); // delcare application
 const env: string = app.get('env')
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
+app.use(errorhandler({ log: true }));
 app.use(compression()); // compress compatible files for quicker client load time
 app.use(express.static('dist'))
 app.use('/assets', express.static('assets'))
+
+
+process.on('uncaughtException', function (exception) {
+    console.log(exception); // to see your exception details in the console
+    // if you are on production, maybe you can send the exception details to your
+});
+
 /*
 function ensureSecure(req, res, next) {
     if (req.secure) {
@@ -35,7 +45,7 @@ if (env === 'production') {
 server = http.createServer(app);
 
 app.get('/', (req, res) => {
-    routeToIndex(req,res);
+    routeToIndex(req, res);
     //res.send(""); //TODO Add index
 });
 
@@ -45,6 +55,12 @@ server.listen(PORT, () => {
     const port = server.address().port;
     console.log("Example app listening on port", PORT);
 });
+
+process.on('SIGTERM', () => {
+    server.close(() => {
+        console.log('Process terminated')
+    })
+})
 
 function routeToIndex(req: any, res: any) {
     const index: string = './dist/index.html'

@@ -1,4 +1,4 @@
-import { Badge, Collapse, IconButton, Switch } from '@material-ui/core';
+import { Badge, Collapse, IconButton } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import BusinessIcon from '@material-ui/icons/Business';
 import CloseIcon from '@material-ui/icons/Close';
@@ -125,9 +125,7 @@ export default function App() {
         <Route path="/about" render={(props) => { return About(classes) }} />
         <footer>
           <FooterComponent />
-        </footer>
-        <Switch>
-        </Switch>
+        </footer>    
       </Router>
     </div>
   );
