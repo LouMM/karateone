@@ -59,11 +59,10 @@ function HeroImage() {
                     <li style={{ color: 'white' }} >
                         <div>
                             Come join the community!
-              </div>
+                        </div>
                         <div className={commonClasses.taglinetext}>
                             Traditional Shudokan
-              </div>
-
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -93,7 +92,7 @@ function HomeBannerComponent() {
 
     return (
         <div className={commonClasses.block}>
-            <img src="./assets/mtsisnowcaps.webp" data-speed="-1" id="parallax_img" className={parallaxStyles.parallax_img} />
+            <img src="./assets/mtsisnowcaps.jpg" data-speed="-1" id="parallax_img" className={parallaxStyles.parallax_img} />
             <div className={commonClasses.herotext} >
                 <ul className={commonClasses.gridList} >
                     <li className={commonClasses.gridListIconContainer}>
@@ -122,7 +121,6 @@ export const Home = (classes: any) => (
         <Container maxWidth="xl">
             <div>
                 <Box my={4}>
-
                 </Box>
                 <Box my={4}>
                     <Typography variant="h4" component="h1" gutterBottom>
@@ -167,8 +165,6 @@ export const Home = (classes: any) => (
                     <Copyright />
                 </Box>
             </div>
-
         </Container>
-
     </Fragment>
 );

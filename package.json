@@ -7,10 +7,9 @@
     "build:win": "NODE_ENV=prod && ts-node webpack.config.ts",
     "build": "./node_modules/.bin/webpack --progress --color --display-error-details --mode production",
     "build:dev": "./node_modules/.bin/webpack --progress --color --display-error-details --mode development",
-    "serve:win": "set ENV=prod&& ts-node server.production.tsx",
+    "serve:win": "set ENV=prod&& node server.production.js",
     "serve": "ENV=prod node server.production.js",    
-    "start": "ENV=prod node server.production.js",
-    "express:dev:win": "./node_modules/.bin/ts-node server.production.tsx",
+    "start": "ENV=prod node server.production.js",   
     "start:dev": "./node_modules/.bin/webpack-dev-server"
   },
   "author": "",

@@ -125,7 +125,7 @@ export default function App() {
         <Route path="/about" render={(props) => { return About(classes) }} />
         <footer>
           <FooterComponent />
-        </footer>    
+        </footer>
       </Router>
     </div>
   );

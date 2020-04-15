@@ -14,7 +14,7 @@ export const activateParallaxStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export function parallaxImg(img: HTMLImageElement | null) {
+export function parallaxImg(img: HTMLDivElement | null | HTMLSourceElement) {
   if (img !== null) {
     let imgParent: HTMLDivElement | null = img.parentElement as HTMLDivElement;
     if (imgParent !== null) {

@@ -20,10 +20,10 @@ export function AboutBannerComponent() {
         let img = document.getElementById("parallax_img");
         if (img !== null) {
 
-            parallaxImg(img as HTMLImageElement);
+            parallaxImg(img as HTMLDivElement);
             if (!eventsSet) {
                 document.addEventListener('scroll', (ev) => {
-                    parallaxImg(img as HTMLImageElement);
+                    parallaxImg(img as HTMLDivElement);
                 });
             }
         }
